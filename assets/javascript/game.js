@@ -7,9 +7,11 @@ var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
 var guessesLeft = document.getElementById("guesses-left");
 var guessedSoFar = document.getElementById("guessed-so-far");
+var list = "";
 
 document.onkeyup = function(event) {
   //computer choices a-z
+  list = list += event.key;
   var computerChoices = [
     "a",
     "b",
@@ -71,10 +73,11 @@ document.onkeyup = function(event) {
   function resetGame() {
     numGuesses = 9;
     guessed = [];
+    list = "";
   }
 
   //Displays guesses, wins and losses
-  guessedSoFar.textContent = userGuess;
+  guessedSoFar.textContent = list;
   winsText.textContent = wins;
   lossesText.textContent = lose;
   guessesLeft.textContent = numGuesses;
